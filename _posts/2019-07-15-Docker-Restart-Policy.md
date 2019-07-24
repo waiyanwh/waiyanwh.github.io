@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Docker Restart Policies"
-categories: [ Docker ]
+
 tags: [devops, sysadmin, docker, container]
 ---
-![Docker](/img/docker.png)
-
 က်ေနာ္ ဒီမွာ အဓိကေျပာခ်င္တာကေတာ့ docker's restart policy ေတြအေျကာင္းပါ။ Production  မွာဆိုရင္ docker containers ေတြ down ေနျပီဆိုတဲ့ notifications ေတြရလာရရင္ sysadmins ေတြအေနနဲ့ container ေတြျပန္ျပန္ up ေနတာနဲ့ ညဘက္ေတြအိပ္တာေနာက္က်ရတာမ်ိုးေတြရွိတတ္ပါတယ္။ ဒီေန့ article ကေတာ့ အေပါ္ကလို problem ေတြမျဖစ္ေအာင္လို့ docker restart policy ကိုသံုးျပီးေတာ့ ဘယ္လိုေရွာင္ရွားရမလဲဆိုတာကိုက်ေနာ္ တတ္သေလာက္မွတ္သေလာက္ေလးေျပာျပေပးမွာပါ။
+
+![Docker](/img/docker.png){: .center-block :}
 
 Container ထဲမွာ application တစ္ခု crash ျဖစ္သြားတဲ့အခာ ဘာေတြျဖစ္လာမလဲ?
 က်ေနာ္တို့ docker's restart policy ေတြအေျကာင္းမေျပာခင္ container ထဲမွာ run ေနတဲ့ application တစ္ခု crash ျဖစ္သြားရင္ docker ကဘယ္လိုအလုပ္လုပ္သလဲဆိုတာကိုအရင္ေလ့လာျကည့္ပါမယ္။ အဲ့လိုလုပ္ဖို့အတြက္ က်ေနာ္က `crash.sh` ဆိုတဲ့ bash script တစ္ခုကို run တဲ့ image တစ္ခုကိုအရင္ build မယ္။ ျပီးေတာ့အဲ့ container ကို run ျကည့္မယ္။
