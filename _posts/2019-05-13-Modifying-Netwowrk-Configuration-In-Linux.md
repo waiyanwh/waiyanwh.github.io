@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Modifying Network Configuration in Linux"
-tags: [devops, sysadmin, docker, container]
+tags: [sysadmin, linux]
 ---
 
 Network ကို configuration လုပ္ေတာ့မယ္ဆိုရင္ network interfaces ေတြရဲ့ configuration files ေတြကိုျပုျပင္ျခင္းနဲ့လည္းလုပ္လို့ရပါတယ္။ interface configuration file ဆိုတာကေတာ့ network devices ေတြရဲ့ software interfaces ေတြကို control လုပ္တဲ့ files ေတြကိုေျပာတာပါ။ဒီ file ေတြကိုမ်ားေသာအားျဖင့္ `/etc/sysconfig/network-scripts/ifcfg-<name>` ဆိုတဲ့ေနရာမွာထားပါတယ္။ `<name>` ဆိုတာကေတာ့ device ေတြရဲ့ interface name ကိုေျပာတာပါ။ေအာက္ကဇယားက variables ေတြကေတာ့ interface ေတြကို static (or) dynamic configuration လုပ္တဲ့အခ်ိန္မွာသံုးတဲ့variables ေတြပါ။
