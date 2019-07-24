@@ -3,11 +3,13 @@ layout: null
 ---
 
 @import url("pygment_highlights.css");
-
+@import url('https://mmwebfonts.comquas.com/fonts/?font=myanmar3');
+@import url('https://mmwebfonts.comquas.com/fonts/?font=pyidaungsu');
+@import url('https://mmwebfonts.comquas.com/fonts/?font=zawgyi');
 /* --- General --- */
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Zawgyi-One', 'Times New Roman', serif;
   font-size: 16px;
   color: #404040;
   position: relative;
