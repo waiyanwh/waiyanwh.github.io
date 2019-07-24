@@ -8,14 +8,23 @@ tags: [sysadmin, linux]
 Modern computer ေတြမွာ power-down state ကေန boot တက္ျပီး login prompt ေပါ္လာတဲ့အခ်ိန္ထိ hardware နဲ့ software အမ်ားျကီးကအတူတကြအလုပ္လုပ္ျကရပါတယ္။ေအာက္မွာေဖာ္ျပထားတဲ့အခ်က္ေတြကေတာ့ red hat operating system boot တက္တဲ့ေနရာမွာလုပ္ေဆာင္တဲ့အခ်က္ေတြျဖစ္ပါတယ္။
 
 ၁. power ဖြင့္လိုက္ျပီဆိုတာနဲ့ **system firmware** လို့ေခါ္တဲ့ BIOS က POST(Power on self test) ကို run ျပီး hardware အခ်ို့ကိုစတင္ေမာင္းနွင္ပါတယ္။
+
 ၂. **system firmware** ကပဲ UEFI (or) BIOS၊ MBR(Master Boot Record) ထဲမွာ ဘယ္ device ကေန boot တက္ရမွာလဲဆိုတာကိုလိုက္ရွာပါတယ္။
+
 ၃. **system firmware** က boot တက္ဖို့ device ကိုေတြ့တဲ့အခါ အဲ့ device ထဲက bootloader ဆီကို system control ကို pass လုပ္ေပးလိုက္ပါတယ္။
+
 ၄. bootloader ကေနမွတစ္ဆင့္ disk ထဲက configuration ေတြကိုလုပ္ေဆာင္ပါတယ္။ဥပမာ grub boot menu တက္လာတဲ့အခ်ိန္ကိုေျပာတာပါ။
+
 ၅. boot menu ထဲကေနမွ user က os ကို boot  တက္ဖို့ေရြးလိုက္တဲ့အခါမွာ bootloader ကေန  kernel နဲ့ disks ထဲက initramfs ကို loads လုပ္ျပီးေတာ့ memory ေပါ္ကိုတင္လိုက္ပါတယ္။ initramfs ဆိုတာကေတာ့ boot လုပ္ရာမွာ hardware ေတြအတြက္လိုအပ္တဲ့ kernel modules ေတြ၊ init scripts ေတြကို သိမ္းထားတဲ့ archive တစ္ခုျဖစ္ပါတယ္။
-၆.အေပါ္ကအဆင့္ေတြျပီးတဲ့အခါ bootloader ကေနတစ္ဆင့္ system control နဲ့ initramfs ရဲ့ location  ကို kernel ဆီကို pass လုပ္ေပးလိုက္ပါတယ္။
+
+၆. အေပါ္ကအဆင့္ေတြျပီးတဲ့အခါ bootloader ကေနတစ္ဆင့္ system control နဲ့ initramfs ရဲ့ location  ကို kernel ဆီကို pass လုပ္ေပးလိုက္ပါတယ္။
+
 ၇. အဲ့ေတာ့မွ kernel ကေန initramfs ကိုျကည့္ျပီးေတာ့ hardware ေတြအတြက္လိုအပ္တဲ့့ drives ေတြကိုရွာျပီးေတာ့ သူ့ထဲမွာပါတဲ့ /sbin/init ကို process ID 1 အေနနဲ့ execute လုပ္ပါတယ္။Red Hat Enterprise Linux 7 မွာဆိုရင္ initramfs ထဲမွာ  /sbin/init က systemd  ရဲ့ copy အေနနဲ့ execute လုပ္ပါတယ္။
+
 ၈. systemd ကေနမွတစ္ဆင့္ /sysroot ဆိုတဲ့ root file system ကို  mount လုပ္ေပးပါတယ္။
+
 ၉. kernel root file system ကေန system root file system အျဖစ္  switch လုပ္ျပီးေတာ့ခုနက copy ကူးထားတဲ့  systemd ကေန execute ထပ္လုပ္ပါတယ္။
+
 ၁၀. systemd ကပဲ kernal ရဲ့ command line ေတြ၊ configuration ေတြေပါ္မူတည္ျပီး text based ဒါမွမဟုတ္ graphical user interface(GUI) ကိုတက္လာေအာင္လုပ္ေပးပါတယ္။
 
 ## Boot, Reboot and Shutdown
@@ -60,11 +69,17 @@ system စအလုပ္လုပ္တဲ့အခ်ိန္မွာဆိ�
 ဆိုတဲ့ command  နဲ့ change လို့ရပါတယ္။
 boot တက္တဲ့အခ်ိန္မွာလည္း target ေတြကို choose လုပ္ေပးလို့ရပါေသးတယ္။
 ဘယ္လိုလုပ္ရမလဲဆိုရင္ေတာ့
+
 ၁. system ကို reboot လုပ္ပါတယ္။
+
 ၂. bootloader coundown မကုန္သြားေအာင္ key တစ္ခုခုကို နွိပ္ပါ။
+
 ၃. grub menu ေပါ္လာတဲ့အခ်ိန္မွာ e ကိုနွိပ္ပါ။
+
 ၄. **linux16** နဲ့စတဲ့ line ကိုသြားပါ။ ဘာလို့လဲဆိုေတာ့ သူက kernel command line မလို့ပါ။
+
 ၅. ျပီးသြားရင္ **systemd.unit=<ထည့္ခ်င္တဲ့ target name>** ကိုထည့္ပါ။
+
 ၆. control + x ကိုနွိပ္ျပီးရင္ပံုမွန္ boot  တက္တဲ့အတိုင္းဆက္လုပ္ပါ။
 
 ## Recovering root password
