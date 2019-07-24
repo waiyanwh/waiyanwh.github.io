@@ -83,7 +83,7 @@ running ျဖစ္ေနတာကိုပဲေတြ့ရပါလိမ္
 * unless-stopped
 * always
 
-`no` ဆိုတာကေတာ့ docker ရဲ့ default policy ပါ။ container ကဘယ္အေျခအေနျဖစ္ေနျဖစ္ေန restart လုပ္တဲ့ policy ပါ။
+`no` ဆိုတာကေတာ့ docker ရဲ့ default policy ပါ။ container ကဘယ္အေျခအေနျဖစ္ေနျဖစ္ေန restart မလုပ္တဲ့ policy ပါ။
 
 ### on-failure
 on-failure policy ကေတာ့စိတ္၀င္စားစရာအေကာင္းဆံုးပါ။ ဒီေကာင္က exit code ကုိျကည့္ျပီးေတာ့ exit code က failure ျဖစ္တယ္ဆိုရင္ container ကို restart လုပ္ေပးျပီး exit code က success ျဖစ္ေနတယ္ဆိုရင္ေတာ့ restart လုပ္မွာမဟုတ္ပါဘူး။ exit code ဆိုတာကေတာ့ container တစ္ခု exit ျဖစ္သြားရင္ ဘယ္ status နဲ့ exit ျဖစ္သြားတယ္ဆိုတာကို ျပတဲ့ code ေလးေတြပါ။အေသးစိတ္သိခ်င္ရင္ေတာ့ [docker exit codes](https://stackoverflow.com/questions/31297616/what-is-the-authoritative-list-of-docker-run-exit-codes) ဆိုျပီး stackoverflow မွာ ေသခ်ာရွင္းျပထားတာကိုဖတ္ျကည့္ျကည့္ပါ။ အဲ့ဒါဆို က်ေနာ္အစက build ခဲ့တဲ့ image ကိုပဲ on-failure policy သံုးျပီးေတာ့ run ျကည့္ပါမယ္။
