@@ -24,7 +24,7 @@ p {
   margin: 30px 0;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
 a {
@@ -338,6 +338,7 @@ footer .theme-by {
 
 .post-preview .post-title {
   font-size: 30px;
+  color: #DD4814;
   margin-top: 0;
 }
 .post-preview .post-subtitle {
@@ -378,6 +379,7 @@ footer .theme-by {
   width: 192px;
 }
 .post-preview .post-read-more {
+  color: #1072E1;
   font-weight: 800;
 }
 
@@ -390,15 +392,15 @@ footer .theme-by {
 /* --- Tags --- */
 
 .blog-tags {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #999;
-  font-size: 13px;
+  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 14px;
   margin-bottom: 30px;
 }
 
 .blog-tags a {
   color: {{ site.link-col }};
-  text-decoration: none;
+  text-decoration: underline;
   padding: 0px 5px;
 }
 
