@@ -25,7 +25,7 @@ p {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 600;
 }
 a {
   color: {{ site.link-col }};
@@ -337,7 +337,7 @@ footer .theme-by {
 }
 
 .post-preview .post-title {
-  font-size: 30px;
+  font-size: 20px;
   color: #DD4814;
   margin-top: 0;
 }
@@ -385,7 +385,7 @@ footer .theme-by {
 
 @media only screen and (min-width: 768px) {
   .post-preview .post-title {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
@@ -527,7 +527,7 @@ footer .theme-by {
     padding: 150px 0;
   }
   .intro-header .page-heading h1 {
-    font-size: 80px;
+    font-size: 60px;
   }
   .intro-header .post-heading h1 {
     font-size: 50px;
