@@ -249,6 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (= 197)
+  jekyll-gist
   jekyll-paginate
   jekyll-pwa-plugin
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Linux boot process"
-subtitle: "Red Hat Enterprise Linux 7 Boot Process"
+subtitle: "Red Hat Enterprise Linux 7 ရဲ့ Boot Process"
 tags: [sysadmin, linux]
 ---
 

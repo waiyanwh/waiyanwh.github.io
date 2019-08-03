@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Modifying Network Configuration in Linux"
+subtitle: "Linux မွာ network configuration ေတြကို ျပင္ဆင္ျကည့္ျခင္း"
 tags: [sysadmin, linux]
 ---
 

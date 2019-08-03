@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Mounting and Unmounting File System in Linux"
+subtitle: "Linux မွာ file system ေတြကို management လုပ္ျကည့္ျခင္း"
 tags: [sysadmin, linux]
 ---
 
