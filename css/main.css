@@ -20,8 +20,8 @@ body {
   {% endif %}
 }
 p {
-  line-height: 1.5;
-  margin: 30px 0;
+  line-height: 2;
+  margin: 15px 0;
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -42,7 +42,7 @@ blockquote p:first-child {
   margin-top: 0;
 }
 hr.small {
-  max-width: 100px;
+  max-width: 1000px;
   margin: 15px auto;
   border-width: 4px;
   border-color: inherit;
