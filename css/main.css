@@ -3,9 +3,9 @@ layout: null
 ---
 
 @import url("pygment_highlights.css");
-@import url('https://mmwebfonts.comquas.com/fonts/?font=myanmar3');
-@import url('https://mmwebfonts.comquas.com/fonts/?font=pyidaungsu');
-@import url('https://mmwebfonts.comquas.com/fonts/?font=zawgyi');
+@import url('https://github.com/waiyanwh/mmwebfonts/blob/master/fonts/myanmar3.ttf?raw=true');
+@import url('https://github.com/waiyanwh/mmwebfonts/blob/master/fonts/padauk.ttf?raw=true');
+@import url('https://github.com/waiyanwh/mmwebfonts/blob/master/fonts/zawgyi.ttf?raw=true');
 /* --- General --- */
 
 body {
