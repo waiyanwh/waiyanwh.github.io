@@ -9,7 +9,7 @@ layout: null
 /* --- General --- */
 
 body {
-  font-family: 'Zawgyi-One', 'Times New Roman', serif;
+  font-family: 'Pyidaungsu', 'Times New Roman', serif;
   font-size: 16px;
   color: #404040;
   position: relative;
@@ -24,7 +24,7 @@ p {
   margin: 15px 0;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Pyidaungsu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
 }
 a {
@@ -354,7 +354,7 @@ footer .theme-by {
   margin: 0 0 10px;
 }
 .post-preview .post-entry {
-  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Pyidaungsu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .post-entry-container {
   display: inline-block;
@@ -392,7 +392,7 @@ footer .theme-by {
 /* --- Tags --- */
 
 .blog-tags {
-  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Pyidaungsu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #000000;
   font-size: 14px;
   margin-bottom: 30px;
@@ -485,7 +485,7 @@ footer .theme-by {
   font-size: 20px;
   line-height: 1.1;
   display: block;
-  font-family: 'Zawgyi-One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Pyidaungsu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
 }

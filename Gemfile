@@ -7,3 +7,4 @@ gem "github-pages", '197', group: :jekyll_plugins
 gem 'jekyll-paginate'
 gem 'jekyll-pwa-plugin'
 gem 'jekyll-gist'
+gem "pkg-config"
