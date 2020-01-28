@@ -1,32 +1,32 @@
 ---
 layout: post
 title:  "Docker Restart Policies"
-subtitle: "Docker ရဲ့ restart policies ေတြကိုေလ့လာျကည့္ျခင္း"
+subtitle: "Docker ရဲ့ restart policies တွေကိုလေ့လာကြည့်ခြင်း"
 tags: [devops, sysadmin, docker, container]
 ---
-က်ေနာ္ ဒီမွာ အဓိကေျပာခ်င္တာကေတာ့ docker's restart policy ေတြအေျကာင္းပါ။ Production  မွာဆိုရင္ docker containers ေတြ down ေနျပီဆိုတဲ့ notifications ေတြရလာရရင္ sysadmins ေတြအေနနဲ့ container ေတြျပန္ျပန္ up ေနတာနဲ့ ညဘက္ေတြအိပ္တာေနာက္က်ရတာမ်ိုးေတြရွိတတ္ပါတယ္။ ဒီေန့ article ကေတာ့ အေပါ္ကလို problem ေတြမျဖစ္ေအာင္လို့ docker restart policy ကိုသံုးျပီးေတာ့ ဘယ္လိုေရွာင္ရွားရမလဲဆိုတာကိုက်ေနာ္ တတ္သေလာက္မွတ္သေလာက္ေလးေျပာျပေပးမွာပါ။
+ကျနော် ဒီမှာ အဓိကပြောချင်တာကတော့ docker's restart policy တွေအကြောင်းပါ။ Production  မှာဆိုရင် docker containers တွေ down နေပြီဆိုတဲ့ notifications တွေရလာရရင် sysadmins တွေအနေနဲ့ container တွေပြန်ပြန် up နေတာနဲ့ ညဘက်တွေအိပ်တာနောက်ကျရတာမျိုးတွေရှိတတ်ပါတယ်။ ဒီနေ့ article ကတော့ အပေါ်ကလို problem တွေမဖြစ်အောင်လို့ docker restart policy ကိုသုံးပြီးတော့ ဘယ်လိုရှောင်ရှားရမလဲဆိုတာကိုကျနော် တတ်သလောက်မှတ်သလောက်လေးပြောပြပေးမှာပါ။
 
 ![Docker](/img/docker.png){: .center-block :}
 
-Container ထဲမွာ application တစ္ခု crash ျဖစ္သြားတဲ့အခာ ဘာေတြျဖစ္လာမလဲ?
-က်ေနာ္တို့ docker's restart policy ေတြအေျကာင္းမေျပာခင္ container ထဲမွာ run ေနတဲ့ application တစ္ခု crash ျဖစ္သြားရင္ docker ကဘယ္လိုအလုပ္လုပ္သလဲဆိုတာကိုအရင္ေလ့လာျကည့္ပါမယ္။ အဲ့လိုလုပ္ဖို့အတြက္ က်ေနာ္က `crash.sh` ဆိုတဲ့ bash script တစ္ခုကို run တဲ့ image တစ္ခုကိုအရင္ build မယ္။ ျပီးေတာ့အဲ့ container ကို run ျကည့္မယ္။
+Container ထဲမှာ application တစ်ခု crash ဖြစ်သွားတဲ့အခာ ဘာတွေဖြစ်လာမလဲ?
+ကျနော်တို့ docker's restart policy တွေအကြောင်းမပြောခင် container ထဲမှာ run နေတဲ့ application တစ်ခု crash ဖြစ်သွားရင် docker ကဘယ်လိုအလုပ်လုပ်သလဲဆိုတာကိုအရင်လေ့လာကြည့်ပါမယ်။ အဲ့လိုလုပ်ဖို့အတွက် ကျနော်က `crash.sh` ဆိုတဲ့ bash script တစ်ခုကို run တဲ့ image တစ်ခုကိုအရင် build မယ်။ ပြီးတော့အဲ့ container ကို run ကြည့်မယ်။
 ```bash
 $ vim crash.sh
 #/bin/bash
 sleep 30
 exit 1
 ```
-အေပါ္မွာေရးထားတဲ့ script ရဲ့ meaning ကေတာ့ ပထမဆံုး 30s  sleep ျဖစ္မယ္။ ျပီးရင္  exit status 1 နဲ့ script က crash ျဖစ္သြားမယ္။အဲ့ဒါဆိုရင္ က်ေနာ္တို့  `crash.sh` ဆိုတဲ့ script ကို run ဖို့အတြက္ docker image တစ္ခု create လုပ္ပါမယ္။
+အပေါ်မှာရေးထားတဲ့ script ရဲ့ meaning ကတော့ ပထမဆုံး 30s  sleep ဖြစ်မယ်။ ပြီးရင်  exit status 1 နဲ့ script က crash ဖြစ်သွားမယ်။အဲ့ဒါဆိုရင် ကျနော်တို့  `crash.sh` ဆိုတဲ့ script ကို run ဖို့အတွက် docker image တစ်ခု create လုပ်ပါမယ်။
 ```bash
 $ vim Dockerfile
 ```
-Dockerfile ထဲမွာပါတာေတြကေတာ့
+Dockerfile ထဲမှာပါတာတွေကတော့
 ```docker
 FROM ubuntu:16.04
 ADD crash.sh /
 CMD /bin/bash /crash.sh
 ```
- ဒီ Dockerfile က ubuntu:16.04 ဆိုတဲ့ image ကိုသံုးျပီးေတာ့ `crash.sh` ကို execute လုပ္မယ္ဆိုတာကိုေရးထားတာပါ။ ဒါေတြျပီးျပီဆိုရင္ေတာ့ က်ေနာ္တုိ့ docker image စျပီးေတာ့ build ပါမယ္။
+ ဒီ Dockerfile က ubuntu:16.04 ဆိုတဲ့ image ကိုသုံးပြီးတော့ `crash.sh` ကို execute လုပ်မယ်ဆိုတာကိုရေးထားတာပါ။ ဒါတွေပြီးပြီဆိုရင်တော့ ကျနော်တို့ docker image စပြီးတော့ build ပါမယ်။
 ```bash
 $ docker build -t docker_restarts ./
 Sending build context to Docker daemon 3.072kB
@@ -41,67 +41,67 @@ Removing intermediate container 3621ca03a316
 Successfully built c8bf5b11d8bf
 Successfully tagged docker_restarts:latest
 ```
-က်ေနာ္ run လိုက္တဲ့ build command က `docker_restarts` ဆိုတဲ့ tag name နဲ့ image တစ္ခုကို build လုပ္တာကိုလုပ္ေဆာင္ပါလိ္မ့္မယ္။တစ္ခ်ို့စက္ေတြမွာေတာ့ docker run ဖို့ sudo လိုပါလိမ့္မယ္။က်ေနာ္တို့ image လည္းရျပီဆိုေတာ့ အဲ့ image ကို run ျကည့္ပါမယ္။
+ကျနော် run လိုက်တဲ့ build command က `docker_restarts` ဆိုတဲ့ tag name နဲ့ image တစ်ခုကို build လုပ်တာကိုလုပ်ဆောင်ပါလိမ့်မယ်။တစ်ချို့စက်တွေမှာတော့ docker run ဖို့ sudo လိုပါလိမ့်မယ်။ကျနော်တို့ image လည်းရပြီဆိုတော့ အဲ့ image ကို run ကြည့်ပါမယ်။
 ```bash
 $ docker run -d --name testing_restarts docker_restarts
 1815d3f80e66e8eeda668a2aa041b67b44517d3ad90c8306569290130fbdfdd7
 ```
-container ကို run ျပီးသြားျပီဆိုေတာ့ က်ေနာ္တို့ သူ့ရဲ့ status ကို `docker ps` ဆိုတဲ့ command ေလး run ျပီးတစ္ခ်က္ေလာက္ျကည့္ျကည့္ပါမယ္။
+container ကို run ပြီးသွားပြီဆိုတော့ ကျနော်တို့ သူ့ရဲ့ status ကို `docker ps` ဆိုတဲ့ command လေး run ပြီးတစ်ချက်လောက်ကြည့်ကြည့်ပါမယ်။
 ```
 $ docker ps
 CONTAINER     ID     IMAGE     COMMAND     CREATED     STATUS     PORTS     NAMES
 ```
-container ကို run ျပီးျပီးခ်င္း `docker ps` ရိုက္ျကည့္ရင္ေတာ့ container က running ျဖစ္ေနတာကိုေတြ့ရပါလိမ့္မယ္။ container run ျပီး 30 second ျကာတဲ့အခ်ိန္မွာေတာ့ docker ps ဆိုရင္ အေပာ္မွာျပထားသလိုဘာမွျမင္ရမွာမဟုတ္ေတာ့ပါဘူး။ အဲ့ေတာ့ container အကုန္လံုးရဲ့ state ကိုျကည့္ဖို့ `docker ps -a` ဆိုတဲ့ command ကိုသံုးရပါမယ္။
+container ကို run ပြီးပြီးချင်း `docker ps` ရိုက်ကြည့်ရင်တော့ container က running ဖြစ်နေတာကိုတွေ့ရပါလိမ့်မယ်။ container run ပြီး 30 second ကြာတဲ့အချိန်မှာတော့ docker ps ဆိုရင် အပော်မှာပြထားသလိုဘာမှမြင်ရမှာမဟုတ်တော့ပါဘူး။ အဲ့တော့ container အကုန်လုံးရဲ့ state ကိုကြည့်ဖို့ `docker ps -a` ဆိုတဲ့ command ကိုသုံးရပါမယ်။
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                     PORTS               NAMES
 24bb26a39f96        docker_restarts     "/bin/bash crash.sh"   2 minutes ago       Exited (1) 2 minutes ago                       docker_restarts
 ```
-container exit ျဖစ္သြားျပီး stop ျဖစ္ေနတာကိုေတြ့ရပါလိမ့္မယ္။ ဆိုလိုခ်င္တာကေတာ့ container ထဲမွာ run ေနတဲ့ application တစ္ခုခုက crash ျဖစ္သြားခဲ့ရင္ container ကိုတစ္ေယာက္ေယာက္က restart လာလုပ္မွသာ container ကျပန္ျပီးေတာ့ up ျဖစ္သြားမွာပါ။ ဒီေနရာမွာ restart policy ေတြ၀င္လာတာပါပဲ။
+container exit ဖြစ်သွားပြီး stop ဖြစ်နေတာကိုတွေ့ရပါလိမ့်မယ်။ ဆိုလိုချင်တာကတော့ container ထဲမှာ run နေတဲ့ application တစ်ခုခုက crash ဖြစ်သွားခဲ့ရင် container ကိုတစ်ယောက်ယောက်က restart လာလုပ်မှသာ container ကပြန်ပြီးတော့ up ဖြစ်သွားမှာပါ။ ဒီနေရာမှာ restart policy တွေဝင်လာတာပါပဲ။
 
 ## Docker's restart policy
-က်ေနာ္တို့ container ကို run လုပ္ကတည္းက အေျကာင္းတစ္စံုတစ္ခုေျကာင့္ stop ျဖစ္သြားရရင္ restart ျပန္လုပ္ေအာင္ restart policy ေတြခ်မွတ္ေပးခဲ့လို့ပါတယ္။ ပိုျပီးေတာ့ျမင္သာေအာင္လို့ ခုနကက်ေနာ္ run ခဲ့တဲ့ container ကိုပဲ always ဆိုတဲ့ policy ေလးနဲ့ run ျကည့္ပါမယ္။
+ကျနော်တို့ container ကို run လုပ်ကတည်းက အကြောင်းတစ်စုံတစ်ခုကြောင့် stop ဖြစ်သွားရရင် restart ပြန်လုပ်အောင် restart policy တွေချမှတ်ပေးခဲ့လို့ပါတယ်။ ပိုပြီးတော့မြင်သာအောင်လို့ ခုနကကျနော် run ခဲ့တဲ့ container ကိုပဲ always ဆိုတဲ့ policy လေးနဲ့ run ကြည့်ပါမယ်။
 ```
 $ docker run -d --name docker_restarts --restart always docker_restarts
 d540b65ca617c05d2f09cc545cb855817b4607b253c06c47c495561a1197eaea
 ```
-အေပါ္က command မွာေတာ့ --restart ဆိုတဲ့ falg နဲ့ restart policy always ကိုထည့္ျပီး run ထားတာကိုျမင္မွာပါ။ အဲ့ေတာ့ ဒီ always က ဘယ္လိုအလုပ္လုပ္လဲဆိုတာသိရေအာင္ docker ps command နဲ့ျကည့္ျကည့္ပါမယ္။
+အပေါ်က command မှာတော့ --restart ဆိုတဲ့ falg နဲ့ restart policy always ကိုထည့်ပြီး run ထားတာကိုမြင်မှာပါ။ အဲ့တော့ ဒီ always က ဘယ်လိုအလုပ်လုပ်လဲဆိုတာသိရအောင် docker ps command နဲ့ကြည့်ကြည့်ပါမယ်။
 ```
  $ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
 d540b65ca617        docker_restarts     "/bin/bash crash.sh"   2 minutes ago       Up 21 seconds                           docker_restarts
 ```
-container က up ျဖစ္ေနတာ 21 seconds ရွိတာကိုျမင္ပါလိမ့္မယ္။ ေနာက္တစ္ခါ `docker ps ` ထပ္ရိုက္ျကည့္တဲ့အခါမွာေတာ့ ထူးျခားတာကိုေတြ့ပါလိ့္မ္။
+container က up ဖြစ်နေတာ 21 seconds ရှိတာကိုမြင်ပါလိမ့်မယ်။ နောက်တစ်ခါ `docker ps ` ထပ်ရိုက်ကြည့်တဲ့အခါမှာတော့ ထူးခြားတာကိုတွေ့ပါလိ့်မ်။
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
 d540b65ca617        docker_restarts     "/bin/bash crash.sh"   22 minutes ago      Up 2 seconds                            docker_restarts
 ```
-running ျဖစ္ေနတာကိုပဲေတြ့ရပါလိမ့္မယ္။ ဒါေပမဲ့ up ျဖစ္တဲ့အခ်ိန္က 2 seconds ပဲရွိေသးတာကိုသတိထားျကည့္ျကည့္ပါ။ ဘာလို့ 2 seconds ပဲျဖစ္ေနတာလဲဆိုေတာ့ ပထမတစ္ျကိမ္ container ကို run တဲ့အခာမွာ container က 30 seconds up and running ျဖစ္ျပီးေတာ့ crash ျဖစ္ျပီး stop သြားတယ္။ အဲ့အခါမွာ restart ကို always လို့ေျပာခဲ့တဲ့အတြက္ container က ဘာအေျကာင္းေျကာင္းေျကာင့္ stop ျဖစ္ျဖစ္ ျပန္ restart ေပးလို့ပါ။စမ္းရင္းနဲ့နားလည္မယ္လို့ေတာ့ထင္မိပါတယ္။ restart policy (၄) မ်ိုးရွိပါတယ္။
+running ဖြစ်နေတာကိုပဲတွေ့ရပါလိမ့်မယ်။ ဒါပေမဲ့ up ဖြစ်တဲ့အချိန်က 2 seconds ပဲရှိသေးတာကိုသတိထားကြည့်ကြည့်ပါ။ ဘာလို့ 2 seconds ပဲဖြစ်နေတာလဲဆိုတော့ ပထမတစ်ကြိမ် container ကို run တဲ့အခာမှာ container က 30 seconds up and running ဖြစ်ပြီးတော့ crash ဖြစ်ပြီး stop သွားတယ်။ အဲ့အခါမှာ restart ကို always လို့ပြောခဲ့တဲ့အတွက် container က ဘာအကြောင်းကြောင်းကြောင့် stop ဖြစ်ဖြစ် ပြန် restart ပေးလို့ပါ။စမ်းရင်းနဲ့နားလည်မယ်လို့တော့ထင်မိပါတယ်။ restart policy (၄) မျိုးရှိပါတယ်။
 
 * no
 * on-failure
 * unless-stopped
 * always
 
-`no` ဆိုတာကေတာ့ docker ရဲ့ default policy ပါ။ container ကဘယ္အေျခအေနျဖစ္ေနျဖစ္ေန restart မလုပ္တဲ့ policy ပါ။
+`no` ဆိုတာကတော့ docker ရဲ့ default policy ပါ။ container ကဘယ်အခြေအနေဖြစ်နေဖြစ်နေ restart မလုပ်တဲ့ policy ပါ။
 
 ### on-failure
-on-failure policy ကေတာ့စိတ္၀င္စားစရာအေကာင္းဆံုးပါ။ ဒီေကာင္က exit code ကုိျကည့္ျပီးေတာ့ exit code က failure ျဖစ္တယ္ဆိုရင္ container ကို restart လုပ္ေပးျပီး exit code က success ျဖစ္ေနတယ္ဆိုရင္ေတာ့ restart လုပ္မွာမဟုတ္ပါဘူး။ exit code ဆိုတာကေတာ့ container တစ္ခု exit ျဖစ္သြားရင္ ဘယ္ status နဲ့ exit ျဖစ္သြားတယ္ဆိုတာကို ျပတဲ့ code ေလးေတြပါ။အေသးစိတ္သိခ်င္ရင္ေတာ့ [docker exit codes](https://stackoverflow.com/questions/31297616/what-is-the-authoritative-list-of-docker-run-exit-codes) ဆိုျပီး stackoverflow မွာ ေသခ်ာရွင္းျပထားတာကိုဖတ္ျကည့္ျကည့္ပါ။ အဲ့ဒါဆို က်ေနာ္အစက build ခဲ့တဲ့ image ကိုပဲ on-failure policy သံုးျပီးေတာ့ run ျကည့္ပါမယ္။
+on-failure policy ကတော့စိတ်ဝင်စားစရာအကောင်းဆုံးပါ။ ဒီကောင်က exit code ကိုကြည့်ပြီးတော့ exit code က failure ဖြစ်တယ်ဆိုရင် container ကို restart လုပ်ပေးပြီး exit code က success ဖြစ်နေတယ်ဆိုရင်တော့ restart လုပ်မှာမဟုတ်ပါဘူး။ exit code ဆိုတာကတော့ container တစ်ခု exit ဖြစ်သွားရင် ဘယ် status နဲ့ exit ဖြစ်သွားတယ်ဆိုတာကို ပြတဲ့ code လေးတွေပါ။အသေးစိတ်သိချင်ရင်တော့ [docker exit codes](https://stackoverflow.com/questions/31297616/what-is-the-authoritative-list-of-docker-run-exit-codes) ဆိုပြီး stackoverflow မှာ သေချာရှင်းပြထားတာကိုဖတ်ကြည့်ကြည့်ပါ။ အဲ့ဒါဆို ကျနော်အစက build ခဲ့တဲ့ image ကိုပဲ on-failure policy သုံးပြီးတော့ run ကြည့်ပါမယ်။
 ```bash
 $ docker run -d --name docker_restarts --restart on-failure:5 docker_restarts
 fc8ddc4572ba60133474d49511fd3a7ea476fcc0ea12a377d3c912af8d4593f4
 ```
-`docker ps` ရိုက္ျကည့္တဲ့အခါမွာ container က running ျဖစ္ေနတာကိုျမင္ရပါလိမ့္မယ္။ဒါေပမဲ့ 3 minutes ျကာျပီးမွ docker ps ရိုက္ျကည့္ရင္ေတာ့ container က stop ျဖစ္ေနတာကိုေတြ့ရပါလိမ့္မယ္။က်ေနာ္က ၅ ခါပဲ restart လုပ္ခိုင္းခဲ့လိုပါ။ (5 * 30 seconds = 150 seconds(2 min 30 s) )
+`docker ps` ရိုက်ကြည့်တဲ့အခါမှာ container က running ဖြစ်နေတာကိုမြင်ရပါလိမ့်မယ်။ဒါပေမဲ့ 3 minutes ကြာပြီးမှ docker ps ရိုက်ကြည့်ရင်တော့ container က stop ဖြစ်နေတာကိုတွေ့ရပါလိမ့်မယ်။ကျနော်က ၅ ခါပဲ restart လုပ်ခိုင်းခဲ့လိုပါ။ (5 * 30 seconds = 150 seconds(2 min 30 s) )
 
-တကယ္လို့ container က လုပ္စရာရွိတာလုပ္ျပီးေတာ့(success ျဖစ္ျပီးေတာ့ ) stop  သြားရင္ေတာ့  on-failure policy က restart လုပ္ေပးမွာမဟုတ္ပါဘူး။ တကယ္ဟုတ္မဟုတ္စမ္းျကည့္ရေအာင္။
-success အတြက္ image ကိုနည္းနည္းျပင္ျပီးေတာ့ build ပါမယ္။ `crash.sh` မွာ exit code ကို 1 ေန 0 ကိုျပင္ရပါမယ္။
+တကယ်လို့ container က လုပ်စရာရှိတာလုပ်ပြီးတော့(success ဖြစ်ပြီးတော့ ) stop  သွားရင်တော့  on-failure policy က restart လုပ်ပေးမှာမဟုတ်ပါဘူး။ တကယ်ဟုတ်မဟုတ်စမ်းကြည့်ရအောင်။
+success အတွက် image ကိုနည်းနည်းပြင်ပြီးတော့ build ပါမယ်။ `crash.sh` မှာ exit code ကို 1 နေ 0 ကိုပြင်ရပါမယ်။
 ```bash
 #/bin/bash
 sleep 30
 exit 0
 ```
-ျပင္ျပီးရင္ image ျပန္ buid ပါမယ္။
+ပြင်ပြီးရင် image ပြန် buid ပါမယ်။
 ```bash
 $ docker build -t docker_restarts ./
 Sending build context to Docker daemon 3.072kB
@@ -116,52 +116,52 @@ Removing intermediate container f8117700767c
 Successfully built 98402cd4a0b8
 Successfully tagged docker_restarts:latest
 ```
-build ျပီးသြားရင္ အဲ့ image ကိုသံုးျပီးေတာ့ container တစ္လံုး run မယ္။ restart policy ကို on-failure ထားေပးလိုက္ျပီးဘာျဖစ္မလဲတစ္ခ်က္ေစာင့္ျကည့္ျကည့္ပါမယ္။
+build ပြီးသွားရင် အဲ့ image ကိုသုံးပြီးတော့ container တစ်လုံး run မယ်။ restart policy ကို on-failure ထားပေးလိုက်ပြီးဘာဖြစ်မလဲတစ်ချက်စောင့်ကြည့်ကြည့်ပါမယ်။
 ```
 $ docker run -d --name docker_restarts --restart on-failure docker_restarts
 3260af6192d0080894e83fe467efc8681f6c352de82268886e2e32260e3066ae
 ```
-ျပီးတဲ့အခါမွာ container ရဲ့ status ကို `docker ps -a` ကိုသံုးျပီးေတာ့တစ္ခ်က္ျကည့္ျကည့္ပါ။
+ပြီးတဲ့အခါမှာ container ရဲ့ status ကို `docker ps -a` ကိုသုံးပြီးတော့တစ်ချက်ကြည့်ကြည့်ပါ။
 ```
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                      PORTS               NAMES
 3260af6192d0        docker_restarts     "/bin/bash crash.sh"   47 seconds ago      Exited (0) 15 seconds ago                       docker_restarts
 ```
-container ကိုျပန္ restart မလုပ္ေတာ့ပဲ container က exited ျဖစ္ျပီး down ေနတာကိုေတြ့ရပါလိမ့္မယ္။ဘာလို့အဲ့လိုျဖစ္လဲဆိုေတာ့ script မွာ exit status code ကို 1 ကေန 0 ကိုျပင္ခဲ့ျပီး run ခိုင္းလိုက္လို့ပါ။(1 mean some error and 0 mean successful) failure မျဖစ္ေတာ့တဲ့အတြက္ on-failure policy က restart မလုပ္ေပးေတာ့တာပါ။
+container ကိုပြန် restart မလုပ်တော့ပဲ container က exited ဖြစ်ပြီး down နေတာကိုတွေ့ရပါလိမ့်မယ်။ဘာလို့အဲ့လိုဖြစ်လဲဆိုတော့ script မှာ exit status code ကို 1 ကနေ 0 ကိုပြင်ခဲ့ပြီး run ခိုင်းလိုက်လို့ပါ။(1 mean some error and 0 mean successful) failure မဖြစ်တော့တဲ့အတွက် on-failure policy က restart မလုပ်ပေးတော့တာပါ။
 ### Always
-always ဆိုတဲ့ policy ကေတာ့ always ဆိုတဲ့အတိုင္း container ဘာေျကာင့္ down down ျပန္ျပီးေတာ့ restart ကိုလုပ္ေပးမွာပါ။အဲ့ဒါကို စမ္းဖို့အတြက္ ခုနက success ျဖစ္မဲ့ image ကိုပဲသံုးျပီး container တစ္ခုျပန္ run ျကည့္ပါမယ္။ restart policy ကေတာ့ always ကိုသံုးပါမယ္။
+always ဆိုတဲ့ policy ကတော့ always ဆိုတဲ့အတိုင်း container ဘာကြောင့် down down ပြန်ပြီးတော့ restart ကိုလုပ်ပေးမှာပါ။အဲ့ဒါကို စမ်းဖို့အတွက် ခုနက success ဖြစ်မဲ့ image ကိုပဲသုံးပြီး container တစ်ခုပြန် run ကြည့်ပါမယ်။ restart policy ကတော့ always ကိုသုံးပါမယ်။
 ```
 $ sudo docker run -d --name docker_restarts --restart always docker_restarts
 676f12c9cd4cac7d3dd84d8b70734119ef956b3e5100b2449197c2352f3c4a55
 ```
-ျပီးရင္  30 second ေလာက္ေစာင့္ျပီး `docker ps -a` ကိုသံုးျပီး check ျကည့္ပါ။ container က success ျဖစ္ျပီး exit ျဖစ္သြားလည္း အျမဲတမ္း restart လုပ္ေပးေနတာကိုေတြ့ရပါလိမ့္မယ္။
+ပြီးရင်  30 second လောက်စောင့်ပြီး `docker ps -a` ကိုသုံးပြီး check ကြည့်ပါ။ container က success ဖြစ်ပြီး exit ဖြစ်သွားလည်း အမြဲတမ်း restart လုပ်ပေးနေတာကိုတွေ့ရပါလိမ့်မယ်။
 
-#### နည္းနည္းအပ်င္းျကီးမယ္ဗ်ာ။
-run ေနတဲ့ container ကို stop လုပ္ပါ။
-စက္ကို `reboot` ခ်ျကည့္လိုက္ပါ။ (`sudo reboot`)
-စက္ျပန္တက္လာတဲ့အခါ container status ကို `docker ps -a` နဲ့ ျပန္ check ျကည့္ပါ။
-container up ေနတာကို ေတြ့ရပါလိမ့္မယ္။
+#### နည်းနည်းအပျင်းကြီးမယ်ဗျာ။
+run နေတဲ့ container ကို stop လုပ်ပါ။
+စက်ကို `reboot` ချကြည့်လိုက်ပါ။ (`sudo reboot`)
+စက်ပြန်တက်လာတဲ့အခါ container status ကို `docker ps -a` နဲ့ ပြန် check ကြည့်ပါ။
+container up နေတာကို တွေ့ရပါလိမ့်မယ်။
 
-ဒါကသိပ္ျပီးေတာ့ေကာင္းတဲ့အခ်က္ေတာ့မဟုတ္ပါဘူး။အကယ္၍ဗ်ာ  တစ္ခ်ို့ container ေတြကသူလုပ္စရာရွိတာလုပ္ျပီးလို့ success ျဖစ္ျပီး exit ျဖစ္ေနတာမ်ိုးေတြရွိပါတယ္။ ဒီလိုမွမဟုတ္ပဲ container ေတြကို out of date ျဖစ္ေနလို့ stop လုပ္ထားတယ္ပဲဆိုျကပါစို့။ always သာသံုးထားရင္ reboot လုပ္လိုက္တာနဲ့ အကုန္ ျပန္up လာမွာပါ။ အဲ့ေကာင္အတြက္ solution ကေတာ့ unless-stopped policy ပါ။
+ဒါကသိပ်ပြီးတော့ကောင်းတဲ့အချက်တော့မဟုတ်ပါဘူး။အကယ်၍ဗျာ  တစ်ချို့ container တွေကသူလုပ်စရာရှိတာလုပ်ပြီးလို့ success ဖြစ်ပြီး exit ဖြစ်နေတာမျိုးတွေရှိပါတယ်။ ဒီလိုမှမဟုတ်ပဲ container တွေကို out of date ဖြစ်နေလို့ stop လုပ်ထားတယ်ပဲဆိုကြပါစို့။ always သာသုံးထားရင် reboot လုပ်လိုက်တာနဲ့ အကုန် ပြန်up လာမှာပါ။ အဲ့ကောင်အတွက် solution ကတော့ unless-stopped policy ပါ။
 ### unless-stopped
-unless-stopped ကေတာ့ always နဲ့ဆင္တူပါတယ္။မတူတဲ့တစ္ခ်က္ကေတာ့ container တစ္ခုက stop ျဖစ္ေနတာကို reboot လုပ္ရင္ပဲျဖစ္ျဖစ္၊ docker service ကို restart လုပ္ရင္ပဲျဖစ္ျဖစ္ ျပန္မ up ေပးပါဘူး။ ဘယ္လိုအလုပ္လုပ္လဲသိရေအာင္လို့ ခုနက example လိုပဲ `--restart always` ေနရာမွာ `--restart unless-stopped` နဲ့
-ေျပာင္းျပီးေတာ့စမ္းျကည့္ျကည့္ပါမယ္။
+unless-stopped ကတော့ always နဲ့ဆင်တူပါတယ်။မတူတဲ့တစ်ချက်ကတော့ container တစ်ခုက stop ဖြစ်နေတာကို reboot လုပ်ရင်ပဲဖြစ်ဖြစ်၊ docker service ကို restart လုပ်ရင်ပဲဖြစ်ဖြစ် ပြန်မ up ပေးပါဘူး။ ဘယ်လိုအလုပ်လုပ်လဲသိရအောင်လို့ ခုနက example လိုပဲ `--restart always` နေရာမှာ `--restart unless-stopped` နဲ့
+ပြောင်းပြီးတော့စမ်းကြည့်ကြည့်ပါမယ်။
 ```
 $ docker run -d --name docker_restarts --restart unless-stopped docker_restarts
 cae6809fca9e24f55312a9477f3523ea7ccf9cf77af824b33170c672429e1de9
 ```
-container run ေနျပီဆိုရင္ အဲ့ container ကို stop လုပ္ျပီး reboot လုပ္ျကည့္ပါ။
+container run နေပြီဆိုရင် အဲ့ container ကို stop လုပ်ပြီး reboot လုပ်ကြည့်ပါ။
 ```
 $ docker stop docker_restarts
 docker_restarts
 $ sudo reboot
 ```
-စက္ျပန္တက္လာတဲ့အခါက်ရင္ `docker ps -a` နဲ့ check ျကည့္ပါ။ container start ျဖစ္မလာဘဲ stop ျဖစ္ေနတာကိုပဲေတြ့ရပါလိမ့္မယ္။ unles-stopped policy ရဲ့အေရးျကီးတဲ့အခ်က္ေနာက္တစ္ခ်က္ကေတာ့
-ကို္ယ့္ရဲ့စက္ restart မက်ခင္မွာ container က running ျဖစ္ေနတယ္ဆိုရင္ စက္ကို restart လုပ္လိုက္လည္း container restart ျပန္ျဖစ္ျပီး running ျဖစ္ေနဦးမွာပါ။
-အဲ့ဒါကိုစမ္းဖို့အတြက္ ခုနက stop လုပ္ထားတဲ့ container ကို start ျပန္လုပ္လိုက္ပါ။ ျပီးရင္ စက္ကို reboot  ခ်ပါ။ စက္ျပန္တက္လာရင္ container အေျခအေနကို check ျကည့္ပါ။
+စက်ပြန်တက်လာတဲ့အခါကျရင် `docker ps -a` နဲ့ check ကြည့်ပါ။ container start ဖြစ်မလာဘဲ stop ဖြစ်နေတာကိုပဲတွေ့ရပါလိမ့်မယ်။ unles-stopped policy ရဲ့အရေးကြီးတဲ့အချက်နောက်တစ်ချက်ကတော့
+ကိုယ့်ရဲ့စက် restart မကျခင်မှာ container က running ဖြစ်နေတယ်ဆိုရင် စက်ကို restart လုပ်လိုက်လည်း container restart ပြန်ဖြစ်ပြီး running ဖြစ်နေဦးမှာပါ။
+အဲ့ဒါကိုစမ်းဖို့အတွက် ခုနက stop လုပ်ထားတဲ့ container ကို start ပြန်လုပ်လိုက်ပါ။ ပြီးရင် စက်ကို reboot  ချပါ။ စက်ပြန်တက်လာရင် container အခြေအနေကို check ကြည့်ပါ။
 ## Conclusion
-အေပါ္မွာေျပာတာေတြကေတာ့ရွုပ္လည္းရွုပ္ေနပါလိမ့္မယ္။ ေအးေအးေဆးေဆးစမ္းျကည့္ပါ။
-က်ေနာ္ေနာက္ပိုင္းမွာ code block ေတြသိပ္မထည့္တာက ကိုယ့္ဘာသာကိုယ္စမ္းေစခ်င္လို့ပါ။
-မ်ားမ်ားစမ္းေလ မ်ားမ်ား error တက္ေလ ကို့္အတြက္မ်ားမ်ားက်န္ေလပါပဲ။ သိသေလာက္ေလးေတာ့ျပန္ေျပာျပေပးပါမယ္။ docker နဲ့ container ေတြအေျကာင္းထပ္ေလ့လာခ်င္ေသးတယ္ဆိုရင္ေတာ့ ။ [Why containers and docker are the future](https://resources.codeship.com/ebooks/why-containerization-is-the-future) ဆိုတဲ့ စာအုပ္ေလးကို free download လုပ္ျပီးေလ့လာျကည့္ပါ။
+အပေါ်မှာပြောတာတွေကတော့ရှုပ်လည်းရှုပ်နေပါလိမ့်မယ်။ အေးအေးဆေးဆေးစမ်းကြည့်ပါ။
+ကျနော်နောက်ပိုင်းမှာ code block တွေသိပ်မထည့်တာက ကိုယ့်ဘာသာကိုယ်စမ်းစေချင်လို့ပါ။
+များများစမ်းလေ များများ error တက်လေ ကို့်အတွက်များများကျန်လေပါပဲ။ သိသလောက်လေးတော့ပြန်ပြောပြပေးပါမယ်။ docker နဲ့ container တွေအကြောင်းထပ်လေ့လာချင်သေးတယ်ဆိုရင်တော့ ။ [Why containers and docker are the future](https://resources.codeship.com/ebooks/why-containerization-is-the-future) ဆိုတဲ့ စာအုပ်လေးကို free download လုပ်ပြီးလေ့လာကြည့်ပါ။
 
 Thanks for reading ..
