@@ -2,7 +2,7 @@
 layout: post
 title:  "Gitlab Runner Autoscaling With VMware vSphere"
 subtitle: "GitLab Runner တစ်ခုကို Autoscaling ပြုလုပ်ပြီးသုံးမယ်ဆိုရင်..."
-image: "img/octocat.png"
+image: "/img/octocat.png"
 tags: [sysadmin, linux, DevOps, dockers, git]
 ---
 
