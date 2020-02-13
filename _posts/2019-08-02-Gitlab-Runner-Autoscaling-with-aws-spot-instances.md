@@ -2,7 +2,7 @@
 layout: post
 title:  "Gitlab Runner Autoscaling With AWS Spot Instances"
 subtitle: "GitLab Runner တစ်ခုကို Autoscaling ပြုလုပ်ပြီးသုံးမယ်ဆိုရင်"
-tags: [sysadmin, linux, DevOps, dockers]
+tags: [sysadmin, linux, DevOps, dockers, git]
 ---
 
 ### Introduction
