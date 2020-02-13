@@ -14,4 +14,11 @@ tags: [sysadmin, linux, DevOps, dockers, git]
 
 <script src="https://gist.github.com/waiyanwh/c2ef08311a58661ebbc4baf97f675f14.js"></script>
 
+* vmwarevsphere-username - USERNAME
+* vmwarevsphere-password - PASSWORD
+* vmwarevsphere-vcenter - IP/hostname for vCenter (or ESXi if connecting directly to a single host).
+* vmwarevsphere-datastore - Datastore for Docker VM
+* vmwarevsphere-cpu-count -  CPU number for Docker VM
+* vmwarevsphere-memory-size - Size of memory for Docker VM (in MB)
+
 တကယ်တော့ [docker-machine](https://docs.docker.com/v17.09/machine/overview/) အတွက် သုံးလို့ရတဲ့ [driver](https://docs.docker.com/v17.09/machine/drivers/) မှန်သမျှ ဒီမှာ သုံးလို့ရပါတယ်။ Options တွေ လိုက် change ပေးရုံပါပဲ။ တစ်ချို့အတွက်အသုံးဝင်မယ်ထင်ပါတယ်။
