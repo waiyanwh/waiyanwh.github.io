@@ -4,10 +4,11 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Wai Yan Win Htain. I have the following qualities:
+My name is Wai Yan Win Htain. And I have the following qualities:
 
-- I'm working as System Architect in nexlabs.
-- And I'm tall.
+- I'm working as DevOps Engineer.
+- I love Open Source.
+- I am single. :)
 
 What else do you need?
 
