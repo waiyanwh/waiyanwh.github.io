@@ -11,4 +11,4 @@ tags: [sysadmin, linux, DevOps, dockers]
 
 <script src="https://gist.github.com/waiyanwh/c2ef08311a58661ebbc4baf97f675f14.js"></script>
 
-တကယ်တော့ docker-machine အတွက် သုံးလို့ရတဲ့ [driver](https://docs.docker.com/v17.09/machine/drivers/) မှန်သမျှ ဒီမှာ သုံးလို့ရပါတယ်။ Options တွေ လိုက် change ပေးရုံပါပဲ။ တစ်ချို့အတွက်အသုံးဝင်မယ်ထင်ပါတယ်။
+တကယ်တော့ [docker-machine](https://docs.docker.com/v17.09/machine/overview/) အတွက် သုံးလို့ရတဲ့ [driver](https://docs.docker.com/v17.09/machine/drivers/) မှန်သမျှ ဒီမှာ သုံးလို့ရပါတယ်။ Options တွေ လိုက် change ပေးရုံပါပဲ။ တစ်ချို့အတွက်အသုံးဝင်မယ်ထင်ပါတယ်။
