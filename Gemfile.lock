@@ -216,6 +216,7 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    pkg-config (1.4.1)
     public_suffix (3.1.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   jekyll-gist
   jekyll-paginate
   jekyll-pwa-plugin
+  pkg-config
 
 BUNDLED WITH
    1.17.3
