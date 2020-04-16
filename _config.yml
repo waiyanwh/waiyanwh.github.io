@@ -24,6 +24,7 @@ navbar-links:
   Resources:
      - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
      - Learn markdown: "http://www.markdowntutorial.com/"
+     - Learn Docker: https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/
   Search something?: "https://www.google.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
@@ -86,8 +87,8 @@ social-network-links:
 
 # Select which share links to show in posts
 share-links-active:
-  twitter: false
-  facebook: false
+  twitter: true
+  facebook: true
   linkedin: false
 
 # How to display the link to the website in the footer
