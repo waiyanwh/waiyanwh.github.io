@@ -22,9 +22,8 @@ description: A virtual proof that I'm awesome
 navbar-links:
   About Me: "aboutme"
   Resources:
-     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-     - Learn markdown: "http://www.markdowntutorial.com/"
      - Learn Docker: https://www.tecmint.com/install-docker-and-learn-containers-in-centos-rhel-7-6/
+     - Learn K8S: https://blog.k8smm.org/
   Search something?: "https://www.google.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
