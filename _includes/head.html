@@ -12,6 +12,13 @@
   {% endif %}
 
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ '/feed.xml' | absolute_url }}" />
+  
+  <!-- Facebook share future photo and description -->
+  {% if page.header-img %}
+    <meta property="og:image" content="{{ site.url }}/{{ page.header-img }}" />
+  {% endif %}
+
+  <meta property="og:description" content="{{ page.title }}" />
 
   {% include gtag.html %}
   {% include gtm_head.html %}
