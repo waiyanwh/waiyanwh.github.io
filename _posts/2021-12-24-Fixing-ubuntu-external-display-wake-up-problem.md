@@ -2,7 +2,7 @@
 layout: post
 title:  "Fixing Ubuntu External Display Wake Up Problem"
 subtitle: "Have you tried that before?"
-header-img: "/img/external-monitor-fix/system-spec.png"
+header-img: "img/external-monitor-fix/system-spec.png"
 tags: [ubuntu,external-display]
 ---
 ![spec](/img/external-monitor-fix/system-spec.png){: .center-block :}
