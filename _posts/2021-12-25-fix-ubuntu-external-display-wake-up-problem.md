@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Fix: Ubuntu external display only doens't wake up monitor after suspend/sleep"
+title:  "Fix Ubuntu External Display Wake Up Problem"
 subtitle: "Have you tried that before?"
 tags: [ubuntu,external-display]
 ---
