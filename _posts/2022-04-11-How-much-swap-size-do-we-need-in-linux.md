@@ -24,11 +24,10 @@ swap ကိုလိုအပ်တဲ့ အကြောင်းအမျိ�
 ####  swap size ကိုဘယ်လောက်ထားသင့်လဲ?
 အဓိကအကျဆုံးမေးခွန်းလာပါပြီ။ Swap size ကဘယ်လောက်ရှိသင့်တယ်ဆိုပြီး အတိအကျသတ်မှတ်ချက်တွေလည်းမရှိတဲ့အတွက်ဖြေရတော့အတော်ခက်ပါတယ်။ ကိုယ်အသုံးပြုမဲ့အပေါ်မူတည်ပြီး အဆင်ပြေသလိုထားနိုင်ပါတယ်။ Major linux distributions တွေမှာတောင် Swap အတွက် guide က တစ်ခုနဲ့တစ်ခုမတူကြပါဘူး။ Red Hat’s Suggestion အရဆိုရင် RAM 4GB or higher computer တွေမှာ RAM ရဲ့ 20% ကို swap အဖြစ်ထားဖို့ recommend လုပ်ထားပါတယ် CentOS ကျတော့တစ်မျိုးပြောင်းသွားပါတယ်။ RAM က 2GB ထက်နည်းရင်တော့ swap ကို RAM ရဲ့နှစ်ဆ၊ RAM က 2GB ထက်များရင်တော့ swap ကို RAM+2GB၊ Ubuntu မှာဆိုရင် RAM က less than 1GB ဆိုရင် swap ကို အနည်းဆုံး RAM အတိုင်း(1GB) သို့မဟုတ် အများဆုံး RAM ရဲ့ ၂ဆ၊ RAM က more than 1GB ဆိုရင် swap ကို အနည်းဆုံး RAM ရဲ့ square root(1GB ဆိုရင် 1GB , 4GB ဆိုရင် 2GB) အများဆုံး RAM ရဲ့ ၂ဆ၊ စသည်ဖြင့်အသီးသီးရှိပါတယ်။ တော်တော်ရှုပ်သွားပြီထင်ပါတယ်။ Ubuntu ရဲ့ Recommended swap အပေါ်အခြေခံပြီး မရှုပ်ရအောင် table လေးတစ်ခုလုပ်ထားပေးပါတယ်။
 
-<div align="center">
 
-|  RAM Size  | Swap Size (Least)  |  Swap size (MOST) |
-|---|---|---|
-| 256MB   | 256MB   | 512MB  |
+| RAM Size | Swap Size (Least) | Swap size (MOST) |
+|----------|-------------------|------------------|
+| 256MB | 256MB   | 512MB  |
 | 512MB  | 512MB  | 1GB  |
 |  1GB |  1GB |  2GB |
 | 2GB  |  1GB  | 3GB  |
@@ -42,6 +41,4 @@ swap ကိုလိုအပ်တဲ့ အကြောင်းအမျိ�
 | 32GB  | 6GB  | 38GB  |
 | 64GB  | 8GB  |  72GB |
 | 128GB  | 11GB  | 139GB  |
-
-</div>
 
