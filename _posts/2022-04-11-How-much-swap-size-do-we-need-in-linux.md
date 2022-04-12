@@ -42,3 +42,4 @@ swap ကိုလိုအပ်တဲ့ အကြောင်းအမျိ�
 | 64GB  | 8GB  |  72GB |
 | 128GB  | 11GB  | 139GB  |
 
+Thanks everyone!!!
