@@ -99,3 +99,5 @@ amazonec2-instance-type နဲ့ amazonec2-spot-price ပါ။ ဘယ်လိ
 အပေါ်ပုံမှာဆိုရင် m4.large အတွက် pricing က $0.0311 ကျပါတယ်။ နောက်တစ်ပုံမှာဆိုရင်တော့ m4.2xlarge အတွက်ကို pricing $0.1246 ဖြစ်နေပါလိမ့်မယ်။
 အဲ့တော့ကျနော်တို့က m4.2xlarge သာသုံးမယ်ဆိုရင် config ထဲမှာ amazonec2-spot-price ကို 0.15 လောက်ထားပေးရပါမယ်။ သုံးချင်တဲ့ instance type နဲ့ pricing ကိုချိန်ပေးရုံပါပဲ။
 အကြံပေးချင်တာကတော့ pricing ကိုနည်းနည်းပိုပေးပါ။ ဒါမှသူများထက်ကိုယ်အရင်ရပြီး pipeline လည်းမြန်မြန်ဆန်ဆန်ပြီးမှာဖြစ်ပါတယ်။
+
+Update: နောက်ပိုင်းမှာ `docker-machine` က default အနေနဲ့ `Ubuntu-16.04` ကိုသုံးတာဖြစ်တဲ့အတွက်ကြောင့် `docker-machine` က provision လုပ်တဲ့အချိန် docker installation လုပ်တဲ့အချိန်မှာ issue နည်းနည်းရှိပြီး `failed` ဖြစ်သွားတတ်ပါတယ်။ အဲ့ဒါကြောင့် ကိုယ့် `runner` config.toml မှာကိုယ် setup လုပ်မဲ့ `aws region` က update ဖြစ်တဲ့ `ubuntu release` တစ်ခုခုရဲ့ `AMI ID` ကို ထည့်ပေးဖို့လိုလာပါတယ်။
