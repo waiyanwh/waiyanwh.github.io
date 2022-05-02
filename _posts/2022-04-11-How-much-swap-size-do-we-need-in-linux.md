@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How-much-swap-size-do-we-need-in-linux"
+title:  "How much swap size do we need in linux"
 subtitle: "Linux မှာ swap partition ကိုဘယ်လောက်ထားသင့်သလဲ?"
 header-img: "img/swap-size/choose-swap-size.jpg"
 tags: [ubuntu,linux,sysadmin]

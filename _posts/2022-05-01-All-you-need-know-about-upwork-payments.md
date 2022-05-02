@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "All-you-need-to-know-about-upwork-payments"
+title:  "All you need to know about upwork payments"
 subtitle: "Upwork မှာ payments တွေဘယ်လိုအလုပ်လုပ်လဲ?"
 header-img: "img/upwork/payment.jpg"
 tags: [sharing]
