@@ -27,6 +27,17 @@ fusectl on /sys/fs/fuse/connections type fusectl (rw)
 uhelper=hal,uid=500,utf8,shortname=lower)
 twin4:/musicbox on /misc/musicbox type nfs4 (rw,addr=192.168.1.4)
 ```
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3484102822372133"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-3484102822372133"
+     data-ad-slot="7522283056"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ဒီမှာဆိုရင် general အားဖြင့် devices , mount point, file system type ဆိုတဲ့ format နဲ့ပြထားပါတယ်။ ဥပမာ ပထမဆုံး line ကိုကြည့်မယ်ဆိုရင် /dev/sda2 ဆိုတဲ့ device ကို root အဖြစ် mount လုပ်ထားတယ်။သူ့ရဲ့ file system type က ext3 ဖြစ်တယ်။ အနောက်က rw တာ့ readable နဲ့ writeable ဖြစ်တယ်ဆိုတာကိုပြောချင်တဲ့ options ဖြစ်ပါတယ်။ ဒါဆို mount command ကိုအသုံးပြုပြီးတော့ CD-ROM တစ်ခုကို mount လုပ်ကြည့်ကြရအောင်။
 
