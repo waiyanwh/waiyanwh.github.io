@@ -6,8 +6,8 @@ subtitle: Why you'd want to go on a date with me
 
 My name is Wai Yan Win Htain. And I have the following qualities:
 
-- I'm working as DevOps Engineer.
-- I love Open Source.
+- I'm Infrastructure/DevOps Engineer.
+- I love Open Source and Cloudnative.
 - Contributor of local Linux Community
 - Contributor of local DevOps Community
 
