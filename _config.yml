@@ -80,7 +80,7 @@ social-network-links:
 #  instagram: deanat78
 #  youtube: user/deanat78
 #  spotify: yourname
-  telephone: +959259461326
+  telephone: +66855403370
 #  steam: deanat78
 #  twitch: yourname
 #  yelp: yourname
@@ -89,11 +89,11 @@ social-network-links:
 share-links-active:
   twitter: true
   facebook: true
-  linkedin: false
+  linkedin: true
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "blog.dopevs.cloud"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: "waiyanwh.github.io"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Web Statistics Section --- #
 
@@ -141,7 +141,7 @@ staticman:
 # --- Misc --- #
 
 # Facebook App ID
-# fb_app_id: ""
+fb_app_id: "879301956731027"
 
 # Excerpt Word Length
 # Truncates the excerpt to the specified number of words on the index page
@@ -154,7 +154,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "Indochina Time/Bangkokr"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
