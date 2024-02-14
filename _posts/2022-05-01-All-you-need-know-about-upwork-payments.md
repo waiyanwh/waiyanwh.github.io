@@ -22,6 +22,20 @@ Example - 1
 Example - 2
 </p>
 
+နောက်ပြီး client ကနေပြီးတော့ Message reply နဲ့အတူ pdf file နဲ့ Google Form ဖြည့်ခိုင်းပြီး အပြင်ကနေလုပ်ဖို့ information တွေ Crypto Wallet Address တွေတောင်းတာမျိုးတွေလည်းရှိတတ်ပါတယ်။ ဟုတ်တာမဟုတ်တာထက် အဲ့လိုတွေဆိုရှောင်ပြီး upwork ကို report လုပ်လိုက်တာပိုကောင်းပါတယ်။ ကျနော် ဆဲပြီး report လုပ်လိုက်တဲ့ account တွေ၊ အောက်မှာ ကျနော်ကြုံခဲ့ရတဲ့ Examples တွေပြထားပေးပါတယ်။
+![spec](/img/upwork/upwork-scam-pdf-format.png){: .center-block :}
+<p align = "center">
+PDF form 
+</p>
+![spec](/img/upwork/upwork-scam-account.png){: .center-block :}
+<p align = "center">
+Restricted account - 1
+</p>
+![spec](/img/upwork/upwork-scam-account2.png){: .center-block :}
+<p align = "center">
+Restricted account - 2
+</p>
+
 ## How upwork payments are reveived
 
 Project တစ်ခု offer ရပြီး အလုပ်စလုပ်ပြီဆိုတာနဲ့ hourly base ဖြစ်ဖြစ် project base ဖြစ်ဖြစ် ချက်ချင်းပိုက်ဆံမရပါဘူး။ project base/milestone base မှာ ကျနော်တို့ project တစ်ခု or milestone တစ်ခုပြီးပြီဆိုတာနဲ့ client ဆီကို review လုပ်ဖို့ upwork က noti ပို့ပါတယ်။ project base/milestone base ဆိုရင်တော့ submit လုပ်လုပ်ပြီးချင်း ပို့ပြီးတော့ hourly base ဆိုရင်တော့ Every Sunday night မှာပို့ပါတယ်။ အဲ့လိုအခြေအနေမှာ ကျနော်တို့အလုပ်လုပ်ထားတဲ့ပိုက်ဆံက In review အဆင့်ကိုရောက်သွားပါလိမ့်မယ်။ hourly ဆိုရင်တော့ 5 ရက်၊ milestone ဆိုရင်တော့ 14 ရက်ထိကြာနိုင်ပါတယ်။ client က တစ်ရက်နဲ့ accept လုပ်ပေးလိုက်တယ်ဆိုရင်တော့ တစ်ရက်ပေါ့။ အဲ့ In review အဆင့်မှာ client က approve လုပ်ပေးလိုက်တဲ့ ပိုက်ဆံက Pending အဆင့်ကိုထပ်ရောက်ပါတယ်။ ဒီအဆင့်မှာ fixed-price project တွေဆိုရင်တော့ ၅ ရက်အတိကြာမှာဖြစ်ပြီးတော့ hourly base project တွေကတော့ ၁ ရက်ကနေ ၅ ရက်ထိကြာတတ်ပါတယ်။ အဲ့အဆင့်ပြီးတဲ့အခါမှ Available ဆိုတဲ့ အဆင့်ကိုရောက်လာမှာဖြစ်ပြီးတော့ Available ထဲက ပိုက်ဆံတွေကတော့ Withdraw လုပ်လို့ရပါပြီ။ withdraw ပဲလုပ်လုပ် connect ပဲပြန်ဝယ်ဝယ်ပေါ့။ 
