@@ -29,7 +29,7 @@ navbar-links:
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/favicon.png"
+# avatar: "/img/favicon.png"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
@@ -39,15 +39,15 @@ avatar: "/img/favicon.png"
 
 # Personalize the colors in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#F5F5F5"
-navbar-text-col: "#262524"
-navbar-children-col: "#F5F5F5"
-page-col: "#FFFFFF"
-link-col: "#DD4814"
-hover-col: "#0085A1"
-footer-col: "#F5F5F5"
-footer-text-col: "#777777"
-footer-link-col: "#DD4814"
+navbar-col: "#FFFFFF"
+navbar-text-col: "#212529"
+navbar-children-col: "#F8F9FA"
+page-col: "#F8F9FA"
+link-col: "#0085A1"
+hover-col: "#005B6E"
+footer-col: "#FFFFFF"
+footer-text-col: "#6C757D"
+footer-link-col: "#0085A1"
 
 # Alternatively, the navbar, footer, and page background can be set to use background images
 # instead of colour
@@ -154,7 +154,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "Indochina Time/Bangkokr"
+timezone: "Asia/Bangkok"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
