@@ -1,11 +1,65 @@
-<header class="intro-header">
+{% assign is_home = false %}
+{% if page.url == "/" or page.url == "/index.html" %}
+{% assign is_home = true %}
+{% elsif page.url contains "/page" %}
+{% assign is_home = true %}
+{% elsif include.type == "home" %}
+{% assign is_home = true %}
+{% endif %}
+
+{% if is_home %}
+<!-- Homepage / Blog Listing Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="accent">Dop</span>Evs
+    </h1>
+    <p class="hero-subtitle">
+      Where you discover the world of <span class="typed-text">DevOps</span>
+    </p>
+    <a href="#posts" class="hero-cta">Explore Posts</a>
+
+    <div class="hero-social">
+      {% if site.social-network-links.github %}
+      <a href="https://github.com/{{ site.social-network-links.github }}" target="_blank" title="GitHub">
+        <i class="fa fa-github"></i>
+      </a>
+      {% endif %}
+      {% if site.social-network-links.linkedin %}
+      <a href="https://linkedin.com/in/{{ site.social-network-links.linkedin }}" target="_blank" title="LinkedIn">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      {% endif %}
+      {% if site.social-network-links.facebook %}
+      <a href="https://facebook.com/{{ site.social-network-links.facebook }}" target="_blank" title="Facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      {% endif %}
+      {% if site.social-network-links.email %}
+      <a href="mailto:{{ site.social-network-links.email }}" title="Email">
+        <i class="fa fa-envelope"></i>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+  </div>
+</section>
+{% else %}
+<!-- Regular Page/Post Header - Dark Theme -->
+<header class="page-header-dark">
+  <a href="{{ '/' | relative_url }}" class="back-to-home">
+    <i class="fa fa-arrow-left"></i> Back to Home
+  </a>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="{{ include.type }}-heading">
           <h1>{{ page.title }}</h1>
           {% if page.subtitle %}
-          <span class="subheading">{{ page.subtitle }}</span>
+          <p class="subheading">{{ page.subtitle }}</p>
           {% endif %}
           {% if include.type == "post" %}
           <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
@@ -15,3 +69,4 @@
     </div>
   </div>
 </header>
+{% endif %}
